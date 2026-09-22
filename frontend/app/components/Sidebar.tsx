@@ -74,7 +74,7 @@ export default function Sidebar({
             }}
           >
             <img
-              src="/images/I-tech-ca.jpg"
+              src="/images/I-tech.jpg"
               alt="logo"
               style={{
                 width: 40,

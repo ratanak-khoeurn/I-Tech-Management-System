@@ -21,6 +21,11 @@ import {
   Phone,
   MapPin,
   CheckCircle2,
+  CameraIcon,
+  Rotate3D,
+  DraftingCompassIcon,
+  BotIcon,
+  Laptop,
 } from "lucide-react";
 import { fetchPublicSettings, type PublicOrganizationSettings } from "../../../services/settingsService";
 import { submitPublicInquiry } from "../../../services/inquiryService";
@@ -44,15 +49,15 @@ const STATS = [
 ];
 
 const PROGRAMS = [
-  { icon: <FlaskConical size={22} />, title: "Science Program", desc: "Building critical thinking and problem-solving through hands-on inquiry.", color: "bg-blue-50 text-blue-600" },
-  { icon: <Cpu size={22} />, title: "Technology Program", desc: "Hands-on learning in computing, coding, and engineering fundamentals.", color: "bg-orange-50 text-orange-600" },
-  { icon: <Trophy size={22} />, title: "Sports Program", desc: "Encouraging physical fitness, teamwork, and leadership on the field.", color: "bg-emerald-50 text-emerald-600" },
-  { icon: <Palette size={22} />, title: "Arts Program", desc: "Nurturing creativity and expression through visual and performing arts.", color: "bg-pink-50 text-pink-600" },
-  { icon: <Languages size={22} />, title: "Language Program", desc: "Building strong communication skills and global language fluency.", color: "bg-purple-50 text-purple-600" },
+  { icon: <Laptop size={22} />, title: "Computer Office", desc: "Exploring the world of technology and innovation.", color: "bg-blue-50 text-blue-600" },
+  { icon: <DraftingCompassIcon size={22} />, title: "Graphic Design", desc: "Creating visually stunning and functional digital experiences.", color: "bg-orange-50 text-orange-600" },
+  { icon: <CameraIcon size={22} />, title: "Photography", desc: "Capturing moments and telling stories through the lens.", color: "bg-emerald-50 text-emerald-600" },
+  { icon: <BotIcon size={22} />, title: "Robotics", desc: "Developing problem-solving and critical thinking skills through hands-on learning.", color: "bg-pink-50 text-pink-600" },
+  { icon: <Cpu size={22} />, title: "AI & ML", desc: "Unveiling the power of artificial intelligence and machine learning.", color: "bg-purple-50 text-purple-600" },
 ];
 
 const ADMISSION_STEPS = [
-  { icon: <FileText size={20} />, title: "1. Apply Online", desc: "Fill out our short application form — no office visit required." },
+  { icon: <FileText size={20} />, title: "1. Enroll Online", desc: "Apply for admission and log in to your new student portal." },
   { icon: <CheckCircle2 size={20} />, title: "2. Submit Documents", desc: "Log in to your new student portal and upload documents for review." },
   { icon: <CreditCard size={20} />, title: "3. Pay & Get Enrolled", desc: "Pay your fees online and get confirmed once admissions approves you." },
 ];
@@ -96,19 +101,28 @@ export default function WelcomePage() {
             <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-600 text-white">
               <GraduationCap size={20} />
             </span>
-            <span className="text-lg font-bold tracking-tight text-slate-900">{orgName}</span>
+            <span className="text-lg font-bold tracking-tight text-slate-900">
+              {orgName}
+            </span>
           </a>
 
           <nav className="hidden items-center gap-8 lg:flex">
             {NAV_LINKS.map((link) => (
-              <a key={link.href} href={link.href} className="text-sm font-medium text-slate-600 hover:text-blue-600">
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-sm font-medium text-slate-600 hover:text-blue-600"
+              >
                 {link.label}
               </a>
             ))}
           </nav>
 
           <div className="hidden items-center gap-3 lg:flex">
-            <Link to="/login" className="text-sm font-semibold text-slate-700 hover:text-blue-600">
+            <Link
+              to="/login"
+              className="text-sm font-semibold text-slate-700 hover:text-blue-600"
+            >
               Log In
             </Link>
             <Link
@@ -133,13 +147,26 @@ export default function WelcomePage() {
           <div className="border-t border-slate-100 bg-white px-4 py-4 lg:hidden">
             <nav className="flex flex-col gap-3">
               {NAV_LINKS.map((link) => (
-                <a key={link.href} href={link.href} onClick={() => setMenuOpen(false)} className="text-sm font-medium text-slate-700">
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="text-sm font-medium text-slate-700"
+                >
                   {link.label}
                 </a>
               ))}
               <div className="mt-2 flex flex-col gap-2 border-t border-slate-100 pt-3">
-                <Link to="/login" className="text-sm font-semibold text-slate-700">Log In</Link>
-                <Link to="/apply" className="rounded-md bg-blue-600 px-4 py-2 text-center text-sm font-semibold text-white">
+                <Link
+                  to="/login"
+                  className="text-sm font-semibold text-slate-700"
+                >
+                  Log In
+                </Link>
+                <Link
+                  to="/apply"
+                  className="rounded-md bg-blue-600 px-4 py-2 text-center text-sm font-semibold text-white"
+                >
                   Apply Now
                 </Link>
               </div>
@@ -149,16 +176,28 @@ export default function WelcomePage() {
       </header>
 
       {/* Hero */}
-      <section id="home" className="relative overflow-hidden bg-gradient-to-br from-slate-50 to-blue-50">
+      <section
+        id="home"
+        className="relative overflow-hidden bg-gradient-to-br from-slate-50 to-blue-50"
+      >
         <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8 lg:py-24">
           <div>
-            <p className="mb-3 text-sm font-bold uppercase tracking-widest text-blue-600">{slogan}</p>
+            <p className="mb-3 text-sm font-bold uppercase tracking-widest text-blue-600">
+              {slogan}
+            </p>
             <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-5xl">
-              For A Better <span className="text-blue-600">Tomorrow</span>
+              Stop dreaming, start doing. Welcome to
+              <span className="text-blue-600"> I-Tech Media </span>
             </h1>
             <p className="mt-5 max-w-xl text-base text-slate-600 sm:text-lg">
-              Empowering students with knowledge, values, and skills to become responsible global citizens —
-              and now, apply, track your admission, and manage everything online.
+              I-Tech Media is your fast-track to in-demand digital expertise. We
+              offer practical, industry-relevant training in Media and
+              Information Technology. Whether you are a beginner or looking to
+              advance your career, our intensive, hands-on courses—covering
+              Computer Office, Graphic Design, Video Editing, 3D Design,
+              Animation, and more—are designed to equip you for immediate
+              success in the real world. Secure your creative and successful
+              future; enroll today.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
@@ -177,9 +216,9 @@ export default function WelcomePage() {
           </div>
           <div className="relative">
             <img
-              src="/images/up-image.png"
+              src="/images/I-tech.jpg"
               alt={orgName}
-              className="h-72 w-full rounded-2xl object-cover shadow-xl sm:h-96"
+              className="h-72 w-full rounded-2xl object-cover shadow-xl sm:h-110"
             />
           </div>
         </div>
@@ -188,12 +227,19 @@ export default function WelcomePage() {
         <div className="border-t border-blue-100 bg-white">
           <div className="mx-auto grid max-w-7xl grid-cols-2 gap-6 px-4 py-8 sm:px-6 lg:grid-cols-4 lg:px-8">
             {STATS.map((stat) => (
-              <div key={stat.label} className="flex flex-col items-center text-center">
+              <div
+                key={stat.label}
+                className="flex flex-col items-center text-center"
+              >
                 <span className="mb-2 flex h-11 w-11 items-center justify-center rounded-full bg-blue-50 text-blue-600">
                   {stat.icon}
                 </span>
-                <span className="text-2xl font-bold text-slate-900">{stat.value}</span>
-                <span className="text-xs font-medium text-slate-500">{stat.label}</span>
+                <span className="text-2xl font-bold text-slate-900">
+                  {stat.value}
+                </span>
+                <span className="text-xs font-medium text-slate-500">
+                  {stat.label}
+                </span>
               </div>
             ))}
           </div>
@@ -201,30 +247,48 @@ export default function WelcomePage() {
       </section>
 
       {/* Mission & Vision */}
-      <section id="about" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <section
+        id="about"
+        className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8"
+      >
         <div className="mb-10 text-center">
-          <h2 className="text-sm font-bold uppercase tracking-widest text-blue-600">About Us</h2>
-          <p className="mt-2 text-3xl font-bold text-slate-900">Our Mission &amp; Vision</p>
+          <h2 className="text-sm font-bold uppercase tracking-widest text-blue-600">
+            About Us
+          </h2>
+          <p className="mt-2 text-3xl font-bold text-slate-900">
+            Our Mission &amp; Vision
+          </p>
         </div>
         <div className="grid gap-6 sm:grid-cols-2">
           <div className="rounded-2xl border border-slate-100 bg-slate-50 p-8">
             <span className="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-blue-600 text-white">
               <Target size={20} />
             </span>
-            <h3 className="mb-2 text-xl font-bold text-slate-900">Our Mission</h3>
+            <h3 className="mb-2 text-xl font-bold text-slate-900">
+              Our Mission
+            </h3>
             <p className="text-sm text-slate-600">
-              To provide a nurturing and inclusive environment that encourages academic excellence, creativity, and
-              character development to prepare students for a successful future.
+              Our mission is to empower a new generation of Cambodian
+              professionals by delivering high-quality, practical, and
+              affordable IT and digital media training. We achieve this by
+              fostering a dynamic learning environment, upholding global
+              standards through our partnership with Pearson, and ensuring our
+              graduates are equipped with the skills and credentials necessary
+              for career advancement in the digital economy.
             </p>
           </div>
           <div className="rounded-2xl border border-slate-100 bg-slate-50 p-8">
             <span className="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-blue-600 text-white">
               <Eye size={20} />
             </span>
-            <h3 className="mb-2 text-xl font-bold text-slate-900">Our Vision</h3>
+            <h3 className="mb-2 text-xl font-bold text-slate-900">
+              Our Vision
+            </h3>
             <p className="text-sm text-slate-600">
-              To be a leading institution recognized for delivering quality education and inspiring students to
-              achieve their full potential and make a positive impact on the world.
+              To be the premier training and certification hub in Cambodia,
+              bridging the gap between local talent and global industry
+              standards by providing access to world class information and tech,
+              education, and internationally recognized certifications.
             </p>
           </div>
         </div>
@@ -234,19 +298,31 @@ export default function WelcomePage() {
       <section id="academics" className="bg-slate-50 py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-10 text-center">
-            <h2 className="text-sm font-bold uppercase tracking-widest text-blue-600">Academics</h2>
-            <p className="mt-2 text-3xl font-bold text-slate-900">Programs We Offer</p>
+            <h2 className="text-sm font-bold uppercase tracking-widest text-blue-600">
+              Academics
+            </h2>
+            <p className="mt-2 text-3xl font-bold text-slate-900">
+              Programs We Offer
+            </p>
             <p className="mx-auto mt-2 max-w-2xl text-sm text-slate-500">
-              A wide range of academic and co-curricular programs designed to bring out the best in every student.
+              Our programs are designed to equip students with the skills and
+              knowledge they need to succeed in the digital world.
             </p>
           </div>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
             {PROGRAMS.map((program) => (
-              <div key={program.title} className="rounded-xl border border-slate-100 bg-white p-6 shadow-sm transition hover:shadow-md">
-                <span className={`mb-4 flex h-11 w-11 items-center justify-center rounded-full ${program.color}`}>
+              <div
+                key={program.title}
+                className="rounded-xl border border-slate-100 bg-white p-6 shadow-sm transition hover:shadow-md"
+              >
+                <span
+                  className={`mb-4 flex h-11 w-11 items-center justify-center rounded-full ${program.color}`}
+                >
                   {program.icon}
                 </span>
-                <h3 className="mb-1 text-base font-bold text-slate-900">{program.title}</h3>
+                <h3 className="mb-1 text-base font-bold text-slate-900">
+                  {program.title}
+                </h3>
                 <p className="text-xs text-slate-500">{program.desc}</p>
               </div>
             ))}
@@ -255,28 +331,44 @@ export default function WelcomePage() {
       </section>
 
       {/* Admissions CTA */}
-      <section id="admissions" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <section
+        id="admissions"
+        className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8"
+      >
         <div className="mb-10 text-center">
-          <h2 className="text-sm font-bold uppercase tracking-widest text-blue-600">Admissions</h2>
-          <p className="mt-2 text-3xl font-bold text-slate-900">Enrolling Made Easy</p>
+          <h2 className="text-sm font-bold uppercase tracking-widest text-blue-600">
+            Admissions
+          </h2>
+          <p className="mt-2 text-3xl font-bold text-slate-900">
+            Enrolling Made Easy
+          </p>
           <p className="mx-auto mt-2 max-w-2xl text-sm text-slate-500">
-            Apply online in minutes. As soon as you apply, we set up your Student Portal so you can track your
-            application, submit documents, and pay fees — all in one place.
+            Apply online in minutes. As soon as you apply, we set up your
+            Student Portal so you can track your application, submit documents,
+            and pay fees — all in one place.
           </p>
         </div>
         <div className="grid gap-6 sm:grid-cols-3">
           {ADMISSION_STEPS.map((step) => (
-            <div key={step.title} className="rounded-xl border border-blue-100 bg-blue-50/50 p-6">
+            <div
+              key={step.title}
+              className="rounded-xl border border-blue-100 bg-blue-50/50 p-6"
+            >
               <span className="mb-3 flex h-9 w-9 items-center justify-center rounded-full bg-blue-600 text-white">
                 {step.icon}
               </span>
-              <h3 className="mb-1 text-sm font-bold text-slate-900">{step.title}</h3>
+              <h3 className="mb-1 text-sm font-bold text-slate-900">
+                {step.title}
+              </h3>
               <p className="text-xs text-slate-600">{step.desc}</p>
             </div>
           ))}
         </div>
         <div className="mt-8 flex justify-center">
-          <Link to="/apply" className="rounded-md bg-blue-600 px-8 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700">
+          <Link
+            to="/apply"
+            className="rounded-md bg-blue-600 px-8 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700"
+          >
             Start Your Application →
           </Link>
         </div>
@@ -286,20 +378,35 @@ export default function WelcomePage() {
       <section className="bg-blue-600">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 py-8 text-center sm:px-6 lg:flex-row lg:text-left lg:px-8">
           <div>
-            <h3 className="text-lg font-bold text-white">Already applied or enrolled?</h3>
-            <p className="text-sm text-blue-100">Use your Student Portal to submit documents, pay fees online, and message us anytime.</p>
+            <h3 className="text-lg font-bold text-white">
+              Already applied or enrolled?
+            </h3>
+            <p className="text-sm text-blue-100">
+              Use your Student Portal to submit documents, pay fees online, and
+              message us anytime.
+            </p>
           </div>
-          <Link to="/login" className="whitespace-nowrap rounded-md bg-white px-6 py-3 text-sm font-semibold text-blue-700 shadow-sm hover:bg-blue-50">
+          <Link
+            to="/login"
+            className="whitespace-nowrap rounded-md bg-white px-6 py-3 text-sm font-semibold text-blue-700 shadow-sm hover:bg-blue-50"
+          >
             Go to Student Portal
           </Link>
         </div>
       </section>
 
       {/* Contact */}
-      <section id="contact" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <section
+        id="contact"
+        className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8"
+      >
         <div className="mb-10 text-center">
-          <h2 className="text-sm font-bold uppercase tracking-widest text-blue-600">Contact</h2>
-          <p className="mt-2 text-3xl font-bold text-slate-900">Have a Question?</p>
+          <h2 className="text-sm font-bold uppercase tracking-widest text-blue-600">
+            Contact
+          </h2>
+          <p className="mt-2 text-3xl font-bold text-slate-900">
+            Have a Question?
+          </p>
           <p className="mx-auto mt-2 max-w-2xl text-sm text-slate-500">
             Send us a message and our admissions team will get back to you.
           </p>
@@ -329,13 +436,18 @@ export default function WelcomePage() {
             </div>
           </div>
 
-          <form onSubmit={handleContactSubmit} className="space-y-4 rounded-2xl border border-slate-100 bg-slate-50 p-6 lg:col-span-3">
+          <form
+            onSubmit={handleContactSubmit}
+            className="space-y-4 rounded-2xl border border-slate-100 bg-slate-50 p-6 lg:col-span-3"
+          >
             <div className="grid gap-4 sm:grid-cols-2">
               <input
                 required
                 placeholder="Your name"
                 value={contactForm.name}
-                onChange={(e) => setContactForm((f) => ({ ...f, name: e.target.value }))}
+                onChange={(e) =>
+                  setContactForm((f) => ({ ...f, name: e.target.value }))
+                }
                 className="w-full rounded-md border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-700 shadow-sm focus:border-blue-400 focus:outline-none"
               />
               <input
@@ -343,7 +455,9 @@ export default function WelcomePage() {
                 type="email"
                 placeholder="Your email"
                 value={contactForm.email}
-                onChange={(e) => setContactForm((f) => ({ ...f, email: e.target.value }))}
+                onChange={(e) =>
+                  setContactForm((f) => ({ ...f, email: e.target.value }))
+                }
                 className="w-full rounded-md border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-700 shadow-sm focus:border-blue-400 focus:outline-none"
               />
             </div>
@@ -351,7 +465,9 @@ export default function WelcomePage() {
               required
               placeholder="Subject"
               value={contactForm.subject}
-              onChange={(e) => setContactForm((f) => ({ ...f, subject: e.target.value }))}
+              onChange={(e) =>
+                setContactForm((f) => ({ ...f, subject: e.target.value }))
+              }
               className="w-full rounded-md border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-700 shadow-sm focus:border-blue-400 focus:outline-none"
             />
             <textarea
@@ -359,7 +475,9 @@ export default function WelcomePage() {
               rows={4}
               placeholder="How can we help?"
               value={contactForm.message}
-              onChange={(e) => setContactForm((f) => ({ ...f, message: e.target.value }))}
+              onChange={(e) =>
+                setContactForm((f) => ({ ...f, message: e.target.value }))
+              }
               className="w-full rounded-md border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-700 shadow-sm focus:border-blue-400 focus:outline-none"
             />
             <button
@@ -371,10 +489,14 @@ export default function WelcomePage() {
               {contactStatus === "submitting" ? "Sending…" : "Send Message"}
             </button>
             {contactStatus === "sent" && (
-              <p className="text-sm font-medium text-emerald-600">Thanks! We'll be in touch soon.</p>
+              <p className="text-sm font-medium text-emerald-600">
+                Thanks! We'll be in touch soon.
+              </p>
             )}
             {contactStatus === "error" && (
-              <p className="text-sm font-medium text-red-600">Something went wrong. Please try again.</p>
+              <p className="text-sm font-medium text-red-600">
+                Something went wrong. Please try again.
+              </p>
             )}
           </form>
         </div>
@@ -389,7 +511,9 @@ export default function WelcomePage() {
             </span>
             <span className="text-sm font-bold text-white">{orgName}</span>
           </div>
-          <p className="text-xs text-slate-400">© {new Date().getFullYear()} {orgName}. All rights reserved.</p>
+          <p className="text-xs text-slate-400">
+            © {new Date().getFullYear()} {orgName}. All rights reserved.
+          </p>
         </div>
       </footer>
     </div>
